@@ -1,0 +1,19 @@
+<h3 class="page-header">Lista</h3>
+
+<ul class="list-group">
+    {% for word in dictionary.toArray() %}
+        <li class="list-group-item">
+            {{ word }}
+            <span class="pull-right btn-xs btn btn-danger remove-word" 
+                  title="Remover '{{ word }}' da lista"
+                  data-remove="{{ word }}" 
+                  onclick="removeWord(this)">
+                <i class="fa fa-fw fa-remove"></i>
+            </span>
+        </li>
+    {% else %}
+        <li class="help-block">
+            Não há palavras na lista...
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,21 @@
+{
+    "name": "fernandolise/analisador-lexico",
+    "description": "Descrição",
+    "authors": [
+        {
+            "name": "Fernando Lise Garcia",
+            "email": "097397@aluno.uricer.edu.br"
+        }
+    ],
+    "require": {
+        "slim/slim": "3.9.*",
+        "slim/twig-view": "dev-master",
+        "bryanjhv/slim-session": "~3.0",
+        "php": "^7.1"
+    },
+    "require-dev": {},
+    "psr-4": {
+        "LexicalAnalyzer\\": "src/LexicalAnalyzer/",
+        "App\\": "src/App"
+    }
+}

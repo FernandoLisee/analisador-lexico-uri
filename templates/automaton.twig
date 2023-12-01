@@ -1,0 +1,36 @@
+<h3 class="page-header"></h3>
+{% if automaton.states is not empty %}
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>&</th>
+                    {% for simbol in automaton.alphabet %}
+                    <th>{{ simbol }}</th>
+                    {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for state in automaton.states %}
+                <tr class="{{ state.getIndex() == automaton.lastState ? 'bg-info': null }}">
+                    <td>
+                        {{ state.getIndex() == 0 ? '->' : '' }}
+                        {{ state.isFinish() ? '*' : '' }}q
+                        <sub>{{ state.getIndex() }}</sub>
+                    </td>
+                    {% for simbol in automaton.alphabet %}
+                        <td class="{{ state.getIndex() == automaton.lastState and automaton.actualSimbol == simbol ? 'bg-primary' : null }}">
+                            {% if state[simbol] %}
+                                q
+                                <sub>{{ state[simbol] }}</sub>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="help-block">Não há palavras na lista para que a geração do automato seja realizada...</p>
+{% endif %}
